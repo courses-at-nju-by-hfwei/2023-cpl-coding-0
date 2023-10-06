@@ -14,6 +14,7 @@ int main(void) {
   // 5 elements (no '\0')
   // int[] numbers = {23, 56, 19, 11, 78};
   // variable-sized object may not be initialized
+  // designator: from C99
   int numbers[NUM] = {23, 56, 19, 11, 78};
 
   // []: array subscripting operator
