@@ -1,8 +1,13 @@
 # `2-if-for-array`
 
-- CLion code template
+## Additional
+
+- `Settings` => `Code Style` (Google)
+- `Settings` => `Action on Save` (Formatting Code)
+- TODO (hfwei): CLion code template
 
 ## `min-of-two.c`
+
 - `if-else`
 - code style
   - tab vs. space video
@@ -12,11 +17,13 @@
 - `fmin, fmax` for doubles
 
 ## `min-of-three.c`
+
 - nested `if-else`
 - `if-else` template
 - comment for `else`
 
 ## `leap-if-else.c`
+
 - flowchart
 - `leap`: 0/1 integer as a flag
 - `if-else`
@@ -27,9 +34,11 @@
 - `if (leap == 0)` vs `if (leap != 0)`
 
 ## `leap-else-if.c`
+
 - easier cases go first (Flatten Arrow Code)
 
 ## `leap-elseif.c`
+
 - `else if` (Cascading If Statements)
   - `{ }` removed
   - `if` and `else` in the same line
@@ -37,18 +46,20 @@
 - find the iff condition for leap
 
 ## `leap.c`
+
 - `&&`, `||` operator
   - operator precedence (https://en.cppreference.com/w/c/language/operator_precedence)
 - short-circuit
   - test: 25, 80, 100, 400
   - TODO: order of evaluation (https://en.cppreference.com/w/c/language/eval_order)
-    - `i = ++i + i++;` 
+    - `i = ++i + i++;`
 - Code improvements
   - `if`: without `else`
   - `int leap = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);`
   - `?:` in `printf`
 
 ## `min-array.c`
+
 - `array`
   - `array initializer` (初始化器)
   - What if uninitialized? (garbage in, garbage out)
@@ -70,8 +81,9 @@
     - (3): int i = 1; since C99 (declaration in for-loop); code in standard C library
 
 ## `min-array-input.c`
+
 - `array` initializer
-  - designator 
+  - designator
   - What if uninitialized?
 - input an array
   - `&numbers[i]`: lvalue
