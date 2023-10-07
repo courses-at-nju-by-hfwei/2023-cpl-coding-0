@@ -10,5 +10,3 @@ target_link_libraries(admin m)
 
 add_executable(admin-scanf admin-scanf.c)
 target_link_libraries(admin-scanf m)
-
-add_executable(test test.c)
