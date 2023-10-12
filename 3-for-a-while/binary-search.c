@@ -5,13 +5,13 @@
 #include <stdio.h>
 
 #define LEN 10
-int dict[LEN] = {1, 1, 2, 3, 5, 8, 13, 21, 35, 56};
+int dict[LEN] = { 1, 1, 2, 3, 5, 8, 13, 21, 35, 56 };
 
 int main(void) {
   int key = 0;
   scanf("%d", &key);
 
-  // TODO: binary search
+  // TODO: binary search: search for key in dict[]
   int low = 0;
   int high = LEN - 1;
 

@@ -15,11 +15,13 @@ int main(void) {
 
   for (int number = 2; number <= max; number++) {
     // decide whether number is a prime
+    // Since C99: bool (macro extended to _Bool; with macros true and false)
+    // Since C23: will become keywords (bool, true, false); do not need stdbool.h
     bool is_prime = true;
     for (int factor = 2; factor * factor <= number; factor++) {
       if (number % factor == 0) {
         is_prime = false;
-        // break;  // test: number = 18
+        break;  // test: number = 18
       }
     }
 

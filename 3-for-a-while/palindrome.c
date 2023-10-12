@@ -21,6 +21,9 @@ int main() {
   int len = strlen(string);
   printf("The length of \"%s\" is %d.\n", string, len);
 
+  // TODO: test palindrome
+
+  // TODO: the for version
   // bool is_palindrome = true;
   // for (int i = 0, j = len - 1; i < j; i++, j--) {
   //   if (string[i] != string[j]) {
@@ -29,6 +32,7 @@ int main() {
   //   }
   // }
 
+  // TODO: the while version
   bool is_palindrome = true;
 
   int i = 0;
