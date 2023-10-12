@@ -17,6 +17,9 @@
 - `break`
 - `i * i <= number` vs. `i * i < number`
 - `stdbool.h`
+  - C89, C99, C23
+  - `bool b = 5`
+  - `(bool) 3.5`
 - [x] timing
   - `clock_t start = clock(); clock_t end = clock(); (end - start) / CLOCKS_PER_SEC`
 
@@ -54,9 +57,9 @@
     - Linux: `Ctrl + D` at the beginning of a line
     - Mac: `Cmd + D` at the beginning of a line
     - Windows: `Ctrl + Z` at the beginning of a line
-- more `printf`
+- more `printf` (after each iteration)
 - `sizeof`
-- `I/O indirection`
+- Input&Output indirection
   - Linux/Windows Cmd
 
 ## `palindrome.c`
@@ -65,3 +68,5 @@
 - `scanf("%20s", string);`
 - `strlen`
 - comma expression
+- `for` version
+- `while` version
