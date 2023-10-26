@@ -9,45 +9,26 @@
 #define LEN 21
 char string[LEN] = "";
 
+bool IsPalindrome(const char str[]);
+
 int main() {
-  // example: nolemon,nomelon
   printf("Input a string containing at most 20 characters.\n");
   scanf("%20s", string);
 
-//  int len = 0;
-//  while (string[len] != '\0') {
-//    len++;
-//  }
-  int len = strlen(string);
-  printf("The length of \"%s\" is %d.\n", string, len);
-
-  // TODO: test palindrome
-
-  // TODO: the for version
-  // bool is_palindrome = true;
-  // for (int i = 0, j = len - 1; i < j; i++, j--) {
-  //   if (string[i] != string[j]) {
-  //     is_palindrome = false;
-  //     break;
-  //   }
-  // }
-
-  // TODO: the while version
-  bool is_palindrome = true;
-
-  int i = 0;
-  int j = len - 1;
-  while (i < j) {
-    if (string[i] != string[j]) {
-      is_palindrome = false;
-      break;
-    }
-    i++;
-    j--;
-  }
-
   printf("\"%s\" is %s a palindrome.\n", string,
-         is_palindrome ? "" : "not");
+         IsPalindrome(string) ? "" : "not");
 
   return 0;
+}
+
+bool IsPalindrome(const char str[]) {
+  int len = strlen(str);
+
+  for (int i = 0, j = len - 1; i < j; i++, j--) {
+    if (str[i] != str[j]) {
+      return false;
+    }
+  }
+
+  return true;
 }

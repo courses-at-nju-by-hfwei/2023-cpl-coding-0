@@ -7,53 +7,59 @@
 #define LEN 20
 int numbers[LEN] = { 0 };
 
+void SelectionSort(int arr[], int len);
+void Swap(int left, int right);
+int GetMinIndex(const int arr[], int begin, int end);
+void Print(const int arr[], int len);
+
 int main(void) {
-  /*
-   * Input the array
-   *
-   * Note: fails to run this program in "Run" (Ctrl + D)
-   * See: https://youtrack.jetbrains.com/issue/CPP-5704
-   * Use "Terminal" instead.
-   *
-   * TODO: CLion; Terminal
-   * Linux: Ctrl + D (works now; in the new line, or Ctrl + D twice)
-   *   See https://stackoverflow.com/a/21365313/1833118 (send and clear the buffer)
-   * Windows: Ctrl + Z (does not work on my platform)
-   * TODO: Input&Output redirection
-   *   See https://stackoverflow.com/a/11788475/1833118
-   */
   int len = -1;
   while (scanf("%d", &numbers[++len]) != EOF);
 
   // sizeof numbers / sizeof(numbers[0])
-  for (int i = 0; i < len; i++) {
-    printf("%d ", numbers[i]);
-  }
-  printf("\n");
-
-  // TODO: selection sort
-  for (int i = 0; i < len; i++) {
-    // find the minimum value of numbers[i .. n-1]
-    int min = numbers[i];
-    int min_index = i;
-
-    for (int j = i + 1; j <= len - 1; ++j) {
-      if (numbers[j] < min) {
-        min = numbers[j];
-        min_index = j;
-      }
-    }
-
-    // swap numbers[i] and numbers[min_index]
-    int temp = numbers[i];
-    numbers[i] = numbers[min_index];
-    numbers[min_index] = temp;
-  }
-
-  for (int i = 0; i < len; i++) {
-    printf("%d ", numbers[i]);
-  }
-  printf("\n");
+  Print(numbers, len);
+  SelectionSort(numbers, len);
+  Print(numbers, len);
 
   return 0;
+}
+
+// arr: the (copy of the) address of the first element of the `numbers` array
+void SelectionSort(int arr[], int len) {
+  for (int i = 0; i < len; i++) {
+    int min_index = GetMinIndex(arr, i, len);
+
+    // ERROR: Swap(arr[i], arr[min_index]);
+    int temp = arr[i];
+    arr[i] = arr[min_index];
+    arr[min_index] = temp;
+  }
+}
+
+int GetMinIndex(const int arr[], int begin, int end) {
+  int min = arr[begin];
+  int min_index = begin;
+
+  for (int i = begin + 1; i < end; ++i) {
+    if (arr[i] < min) {
+      min = arr[i];
+      min_index = i;
+    }
+  }
+
+  return min_index;
+}
+
+void Swap(int left, int right) {
+  int temp = left;
+  left = right;
+  right = temp;
+}
+
+void Print(const int arr[], int len) {
+  printf("\n");
+  for (int i = 0; i < len; i++) {
+    printf("%d ", arr[i]);
+  }
+  printf("\n");
 }
