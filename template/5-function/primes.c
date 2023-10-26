@@ -17,7 +17,7 @@ int main(void) {
     for (int factor = 2; factor * factor <= number; factor++) {
       if (number % factor == 0) {
         is_prime = false;
-        break;  // test: number = 18
+        break;
       }
     }
 
