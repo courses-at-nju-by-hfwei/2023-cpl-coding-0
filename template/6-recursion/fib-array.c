@@ -7,7 +7,7 @@
 #define LEN 93
 
 int main() {
-  long long fibs[LEN] = { 0L, 1L };
+  long long fibs[LEN] = { 0LL, 1LL };
 
   int n;
   scanf("%d", &n);

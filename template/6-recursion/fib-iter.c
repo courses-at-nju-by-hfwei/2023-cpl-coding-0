@@ -14,15 +14,8 @@ int main() {
   long long fib0 = 0L;
   long long fib1 = 1L;
 
-  long long fib2 = 0;
-  for (int i = 2; i <= n; i++) {
-    fib2 = fib0 + fib1;
 
-    fib0 = fib1;
-    fib1 = fib2;
-  }
-
-  printf("Fib(%d) = %lld ", n, fib2);
+  // printf("Fib(%d) = %lld ", n, fib2);
 
   return 0;
 }
