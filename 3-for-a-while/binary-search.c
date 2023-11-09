@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 #define LEN 10
-int dictionary[LEN] = { 1, 1, 2, 3, 5, 8, 13, 21, 35, 56 };
+int dictionary[LEN] = { 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 };
 
 int main(void) {
   int key = 0;
