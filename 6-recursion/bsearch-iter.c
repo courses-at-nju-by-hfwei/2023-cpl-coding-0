@@ -9,7 +9,7 @@
 // dictionary: out of any functions; global variables
 // life time: program start to end
 // scope: from this point on until the end of the file (file scope)
-// int dictionary[LEN] = { 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 };
+// int dictionary[LEN] = { 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 };
 
 /**
  * @brief Search for the key in the dict using the binary search algorithm.
@@ -21,7 +21,7 @@
 int BinarySearch(int key, const int dict[100], int len);
 
 int main(void) {
-  const int dictionary[LEN] = { 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 };
+  const int dictionary[LEN] = { 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 };
 
   int key = 0;
   scanf("%d", &key);
