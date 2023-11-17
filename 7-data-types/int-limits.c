@@ -22,6 +22,7 @@ int main() {
 
   printf("ULONG_LONG_MIN = %llu\n", 0ULL);
   printf("ULONG_LONG_MAX = %llu\n\n", ULONG_LONG_MAX);
+  printf("ULLONG_MAX = %llu\n\n", ULLONG_MAX);
 
   return 0;
 }
