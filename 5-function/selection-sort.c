@@ -5,10 +5,10 @@
 #include <stdio.h>
 
 #define LEN 20
-int numbers[LEN] = { 0 };
+int numbers[LEN] = {0};
 
 void SelectionSort(int arr[], int len);
-void Swap(int left, int right);
+void WrongSwap(int left, int right);
 int GetMinIndex(const int arr[], int begin, int end);
 void Print(const int arr[], int len);
 
@@ -29,7 +29,7 @@ void SelectionSort(int arr[], int len) {
   for (int i = 0; i < len; i++) {
     int min_index = GetMinIndex(arr, i, len);
 
-    // ERROR: Swap(arr[i], arr[min_index]);
+    // ERROR: WrongSwap(arr[i], arr[min_index]);
     int temp = arr[i];
     arr[i] = arr[min_index];
     arr[min_index] = temp;
@@ -50,7 +50,7 @@ int GetMinIndex(const int arr[], int begin, int end) {
   return min_index;
 }
 
-void Swap(int left, int right) {
+void WrongSwap(int left, int right) {
   int temp = left;
   left = right;
   right = temp;
