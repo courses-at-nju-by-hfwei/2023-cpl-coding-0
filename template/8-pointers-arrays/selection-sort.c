@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// #define LEN 5
+#define LEN 5
 
 void SelectionSort(int arr[], int len);
 void WrongSwap(int left, int right);
@@ -16,58 +16,32 @@ int GetMinIndex(const int arr[], int begin, int end);
 void Print(const int arr[], int len);
 
 int main(void) {
-  // int numbers[LEN] = {15, 78, 23, 8, 50};
+  int numbers[LEN] = {15, 78, 23, 8, 50};
 
-  int len = 0;
-  scanf("%d", &len);
-
-  // VLA
-  // int numbers[len];
-
-  // return value: (void *)
-  int *numbers = malloc(len * sizeof(*numbers));
-
-  // NULL: null pointer (void *) 0
-  if (numbers == NULL) {
-    printf("Memory allocation failed!\n");
-    return 0;
-  }
-
-  for (int i = 0; i < len; i++) {
-    scanf("%d", &numbers[i]);
-  }
-
-  Print(numbers, len);
-  // &numbers[0] (numbers[0] is also a variable) of type (int *)
-  SelectionSort(numbers, len);
-  Print(numbers, len);
+  Print(numbers, LEN);
+  SelectionSort(numbers, LEN);
+  Print(numbers, LEN);
 
   return 0;
 }
 
 // arr: the (copy of the) address of the first element of the `numbers` array
-// int arr[] <-> int *arr (in compilers)
 void SelectionSort(int arr[], int len) {
   for (int i = 0; i < len; i++) {
     int min_index = GetMinIndex(arr, i, len);
 
     // ERROR: WrongSwap(arr[i], arr[min_index]);
-    // int temp = arr[i];
-    // arr[i] = arr[min_index];
-    // arr[min_index] = temp;
-
-    // &arr[i] <=> &(*(arr + i)) <=> arr + i
-    Swap(&arr[i], &arr[min_index]);
+    int temp = arr[i];
+    arr[i] = arr[min_index];
+    arr[min_index] = temp;
   }
 }
 
-// int arr[] <-> int *arr (in compilers)
 int GetMinIndex(const int arr[], int begin, int end) {
   int min = arr[begin];
   int min_index = begin;
 
   for (int i = begin + 1; i < end; ++i) {
-    // arr[i] <-> *(arr + i) <-> *(i + arr) <-> i[arr] (subscript operator)
     if (arr[i] < min) {
       min = arr[i];
       min_index = i;

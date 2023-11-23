@@ -1,11 +1,13 @@
 /**
- * file: pointer.c
+ * file: radius.c
  *
  * Created by hengxin on 11/24/23.
  */
 
 #include <stdio.h>
 #include <stdlib.h>
+
+#define PI 3.14
 
 int main() {
   /********** On radius **********/
@@ -15,15 +17,15 @@ int main() {
 
   // every variable has an address
   // &: address-of operator ("取地址"运算符)
-  printf("The address of radius is %p\n", &radius);
+  printf("&radius = %p\n", &radius);
   // we have already used the address of a variable before
   // scanf("%d", &radius);
 
   // radius as a left value; refer to its address (the storage space)
   radius = 200;
   // radius as a right value; refer to its value
-  double circumference = 2 * 3.14 * radius;
-  printf("radius = %d; circumference = %f\n", radius, circumference);
+  double circumference = 2 * PI * radius;
+  printf("circumference = %f\n", circumference);
   /********** On radius **********/
 
   /********** On ptr_radius1 **********/
@@ -51,7 +53,7 @@ int main() {
   printf("radius = %d\n", *ptr_radius1);
   /********** On *ptr_radius1 **********/
 
-  /********** On ptr_radius1 again **********/
+  /********** Begin: On ptr_radius1 as lvalue and rvalue **********/
   // ptr_radius1 as a left value
   int radius2 = 200;
   int *ptr_radius2 = &radius2;
@@ -62,7 +64,7 @@ int main() {
   // ptr_radius1 as a right value
   ptr_radius2 = ptr_radius1;
   printf("radius = %d\n", *ptr_radius2);
-  /********** On ptr_radius1 again **********/
+  /********** Begin: On ptr_radius1 as lvalue and rvalue **********/
 
   /********** On array names **********/
   int numbers[5] = {0};
@@ -101,4 +103,6 @@ int main() {
   // ptr_radius6 = ptr_radius3;
   // *ptr_radius6 = 600;
   /********** On const **********/
+
+  return 0;
 }
