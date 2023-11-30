@@ -17,8 +17,14 @@
  *  If copying takes place between objects that overlap,
  *  then behavior is undefined.
  *
- * @param dest
- * @param src
+ *  In Docs:
+ *  (1) The behavior is undefined if the dest array is not large enough.
+ *  (2) The behavior is undefined if the strings overlap.
+ *  (3) The behavior is undefined if either dest is not a pointer to a character array
+ *      or src is not a pointer to a null-terminated byte string.
+ *
+ * @param dest may NOT be null-terminated
+ * @param src  must be null-terminated
  */
 void StrCpy(char *dest, const char *src);
 void StrCpy1(char *dest, const char *src);
@@ -97,6 +103,7 @@ void StrCpy5(char *dest, const char *src) {
   while ((*dest++ = *src++));
 }
 
+// See https://en.cppreference.com/w/c/string/byte/strcpy
 char *StrCpyStd(char *dest, const char *src) {
   for (char *s = dest; (*s++ = *src++) != '\0';);
   return dest;
