@@ -11,7 +11,6 @@
 
 void SelectionSort(int arr[], int len);
 void WrongSwap(int left, int right);
-void Swap(int *left, int *right);
 int GetMinIndex(const int arr[], int begin, int end);
 void Print(const int arr[], int len);
 
@@ -55,12 +54,6 @@ void WrongSwap(int left, int right) {
   int temp = left;
   left = right;
   right = temp;
-}
-
-void Swap(int *left, int *right) {
-  int temp = *left;
-  *left = *right;
-  *right = temp;
 }
 
 void Print(const int arr[], int len) {

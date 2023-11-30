@@ -9,7 +9,7 @@
 
 #define PI 3.14
 
-int main() {
+int main(void) {
   /********** On radius **********/
   int radius = 100;
 
@@ -67,7 +67,7 @@ int main() {
   /********** Begin: On ptr_radius1 as lvalue and rvalue **********/
 
   /********** On array names **********/
-  int numbers[5] = {0};
+  int numbers[5] = { 0 };
   // vs. numbers[2] = {2};
   // numbers++;
   // numbers = &radius;
@@ -103,6 +103,12 @@ int main() {
   // ptr_radius6 = ptr_radius3;
   // *ptr_radius6 = 600;
   /********** On const **********/
+
+  /********** On types **********/
+  // int i = 100;
+  // float *f = (float *) &i;
+  // printf("f = %f\n", *f);
+  /********** On types **********/
 
   return 0;
 }
