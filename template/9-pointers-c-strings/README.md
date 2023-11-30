@@ -8,4 +8,6 @@
   `while (++str[len])`
 - `\0` vs. `0`
 
+## `strcpy.c`
+
 ## `strcmp.c`

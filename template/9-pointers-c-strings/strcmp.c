@@ -1,5 +1,6 @@
 //
-// Created by hfwei on 2022/11/25.
+// file: strcmp.c
+// Created by hfwei on 2022/11/29.
 //
 
 #include <stdio.h>
@@ -19,3 +20,21 @@ int main() {
 
   return 0;
 }
+
+
+// See https://en.cppreference.com/w/c/string/byte/strncmp
+// Compares at most count characters of two possibly null-terminated arrays.
+// The comparison is done lexicographically. Characters following the null character are not compared.
+
+// int StrNCmpStd(const char *s1, const char *s2, int n) {
+//   for (; 0 < n; n--, s1++, s2++) {
+//     if (*s1 != *s2) {
+//       return (*(const unsigned char *) s1)
+//                  < (*(const unsigned char *) s2) ? -1 : 1;
+//     } else if (*s1 == '\0') { // *s1 == *s2 == '\0'
+//       return 0;
+//     }
+//   }
+//
+//   return 0;
+// }
