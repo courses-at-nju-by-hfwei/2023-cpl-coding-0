@@ -1,5 +1,9 @@
 # 10-double-pointers
 
+## `selection-sort-strings.c`
+
+- `const`
+
 ## `echo.c`
 
 - Linux `echo`
