@@ -28,14 +28,17 @@ int main(void) {
       "ZuoXiao",
   };
 
-  // char *name = bsearch("Zhang Chu", names,
-  //                      sizeof names / sizeof *names,
-  //                      sizeof *names,
-  //                      (__compar_fn_t) strcmp);
-  char **name_ptr = bsearch("Zhang Chu", names,
+  char *key_name = "Zhang Chu";
+
+  char **name_ptr = bsearch(&key_name, names,
                             sizeof names / sizeof *names,
                             sizeof *names,
-                            CompareStrs);
+                            (__compar_fn_t) strcmp);
+
+  // char **name_ptr = bsearch("Zhang Chu", names,
+  //                           sizeof names / sizeof *names,
+  //                           sizeof *names,
+  //                           CompareStrs);
 
   printf("name: %s\n", *name_ptr);  // name: Zhang Chu
 
