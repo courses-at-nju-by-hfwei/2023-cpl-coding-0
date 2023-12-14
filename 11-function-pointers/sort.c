@@ -9,11 +9,22 @@
 #include <limits.h>
 #include <string.h>
 
-int CompareInts(const void *left, const void *right);
-void PrintInts(const int *integers, size_t len);
+// (since C11)
+// _Generic ( controlling-expression , association-list )
+// See Section 9.7 of the textbook
+#define Print(x, y) _Generic((x), \
+    int *: PrintInts, \
+    const char **: PrintStrs \
+    )((x), (y))
 
+typedef int (*CompareFunction)(const void *, const void *);
+typedef int CompFunc(const void *, const void *);
+
+int CompareInts(const void *left, const void *right);
 int CompareStrs(const void *left, const void *right);
 int CompareStrsWrong(const void *left, const void *right);
+
+void PrintInts(const int *integers, size_t len);
 void PrintStrs(const char *str[], size_t len);
 
 int main() {
@@ -28,11 +39,7 @@ int main() {
    */
   int (*comp)(const void *, const void *) = CompareInts;
 
-  // finally
-  typedef int (*Comp)(const void *, const void *);
-  typedef int CompFunc(const void *, const void *);
-
-  // Comp comp1 = CompareInts;
+  // CompareFunction comp1 = CompareInts;
   // CompFunc *comp2 = CompareInts;
 
   // you should not do this!!!
@@ -43,7 +50,8 @@ int main() {
   printf("&CompareInts : %p\n", &CompareInts);
 
   qsort(integers, size_of_integers, sizeof *integers, comp);
-  PrintInts(integers, size_of_integers);
+  // PrintInts(integers, size_of_integers);
+  Print(integers, size_of_integers);
 
   // Call functions indirectly via function pointers.
   int a = 10;
@@ -55,12 +63,12 @@ int main() {
       "Cui Jian",
       "Dou Wei",
       "Zhang Chu",
-      "He Yong",
       "Wan Qing",
-      "WuTiaoRen",
+      "Li Zhi",
+      "Yao",
       "ZuoXiao",
+      "ErShou Rose",
       "Hu Mage",
-      "Li Zhi"
   };
   size_t size_of_names = sizeof names / sizeof *names;
 
@@ -69,10 +77,12 @@ int main() {
   //       sizeof *names, comp);
   // PrintStrs(names, size_of_names);
 
-  comp = CompareStrsWrong;
+  // comp = CompareStrsWrong;
+  comp = CompareStrs;
   qsort(names, size_of_names,
         sizeof *names, comp);
-  PrintStrs(names, size_of_names);
+  // PrintStrs(names, size_of_names);
+  Print(names, size_of_names);
 }
 
 int CompareInts(const void *left, const void *right) {
@@ -90,13 +100,12 @@ int CompareInts(const void *left, const void *right) {
   return 0;
 
   // return (int_left > int_right) - (int_left < int_right);
-  //   return int_left - int_right; // erroneous shortcut (fails if INT_MIN is present)
+  // return int_left - int_right; // erroneous shortcut (fails if INT_MIN is present)
 }
 
-// actual arguments: char *const *
 int CompareStrs(const void *left, const void *right) {
-  char *const *pp1 = left;
-  char *const *pp2 = right;
+  const char *const *pp1 = left;
+  const char *const *pp2 = right;
   return strcmp(*pp1, *pp2);
 }
 
@@ -110,7 +119,7 @@ int CompareStrsWrong(const void *left, const void *right) {
 
 void PrintInts(const int *integers, size_t len) {
   printf("\n");
-  for (int i = 0; i < len; ++i) {
+  for (int i = 0; i < len; i++) {
     printf("%d ", integers[i]);
   }
   printf("\n");
