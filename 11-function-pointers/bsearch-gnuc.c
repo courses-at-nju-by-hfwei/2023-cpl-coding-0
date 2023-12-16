@@ -64,17 +64,17 @@ int main(void) {
   //                           sizeof *names,
   //                           (__compar_fn_t) strcmp); // CompareStrsAddress
 
-  char **name_ptr = bsearch_leftmost(&key_name, names,
-                                     sizeof names / sizeof *names,
-                                     sizeof *names,
-                                     CompareStrs);
-
   // char **name_ptr = bsearch_leftmost(&key_name, names,
   //                                    sizeof names / sizeof *names,
   //                                    sizeof *names,
-  //                                    CompareStrsAddress);
+  //                                    CompareStrs);
 
-  if (*name_ptr != NULL) {
+  char **name_ptr = bsearch(&key_name, names,
+                            sizeof names / sizeof *names,
+                            sizeof *names,
+                            CompareStrs);
+
+  if (name_ptr != NULL) {
     printf("Found %s at index %lld.\n",
            *name_ptr, name_ptr - (char **) names);
   } else {
@@ -85,7 +85,7 @@ int main(void) {
                                sizeof names / sizeof *names,
                                sizeof *names,
                                GetCompareFunction(false));
-  if (*name_ci_ptr != NULL) {
+  if (name_ci_ptr != NULL) {
     printf("Found %s at index %lld.\n",
            *name_ci_ptr,
            name_ci_ptr - (char **) names);

@@ -9,17 +9,16 @@ int main(void) {
       "Cui Jian",
       "Zhang Chu",
   };
-
   char *name_ptr = "Zhang Chu";
-  char name_arr[] = "Zhang Chu";
 
   int scores[][3] = {
       { 0, 10, 20 },
       { 10, 20, 30 },
       { 30, 40, 50 },
   };
-
   int (*scores_ptr)[3] = scores;
 
   return 0;
 }
+
+// char name_arr[] = "Zhang Chu";
