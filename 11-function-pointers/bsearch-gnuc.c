@@ -47,7 +47,6 @@ const char *names[] = {
 
 int main(void) {
   char *key_name = "Zhang Chu";
-  char *key_name_ci = "zhang chu";
 
   // char **name_ptr = bsearch(&key_name, names,
   //                           sizeof names / sizeof *names,
@@ -59,20 +58,10 @@ int main(void) {
   //                           sizeof *names,
   //                           CompareStrsAddress);
 
-  // char **name_ptr = bsearch(&key_name, names,
-  //                           sizeof names / sizeof *names,
-  //                           sizeof *names,
-  //                           (__compar_fn_t) strcmp); // CompareStrsAddress
-
-  // char **name_ptr = bsearch_leftmost(&key_name, names,
-  //                                    sizeof names / sizeof *names,
-  //                                    sizeof *names,
-  //                                    CompareStrs);
-
-  char **name_ptr = bsearch(&key_name, names,
-                            sizeof names / sizeof *names,
-                            sizeof *names,
-                            CompareStrs);
+  char **name_ptr = bsearch_leftmost(&key_name, names,
+                                     sizeof names / sizeof *names,
+                                     sizeof *names,
+                                     CompareStrsAddress);
 
   if (name_ptr != NULL) {
     printf("Found %s at index %lld.\n",
@@ -80,6 +69,8 @@ int main(void) {
   } else {
     printf("Could not find %s.\n", key_name);
   }
+
+  char *key_name_ci = "zhang chu";
 
   char **name_ci_ptr = bsearch(&key_name_ci, names,
                                sizeof names / sizeof *names,
