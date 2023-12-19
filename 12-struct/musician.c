@@ -6,6 +6,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stddef.h>
+#include <time.h>
 
 typedef enum gender {
   MALE,
@@ -22,6 +23,8 @@ typedef struct musician {
   char *name;
   // char gender;
   Gender gender;
+  struct tm birth;
+
   char *album;
 
   Score score;
@@ -42,6 +45,12 @@ int main() {
   Musician luo = {
       .name = "Luo Dayou",
       .gender = MALE,
+      .birth = {
+          .tm_year = 1954 - 1900,
+          .tm_mon = 7 - 1,
+          .tm_mday = 20,
+          .tm_wday = 2, // Tuesday
+      },
       .album = "ZhiHuZheYe",
       .score = {
           .c_score = 0,
@@ -53,6 +62,12 @@ int main() {
   Musician cui = {
       .name = "Cui Jian",
       .gender = MALE,
+      .birth = {
+          .tm_year = 1961 - 1900,
+          .tm_mon = 8 - 1,
+          .tm_mday = 2,
+          .tm_wday = 3, // Wednesday
+      },
       .album = "XinChangZhengLuShangDeYaoGun",
       .score = {
           .c_score = 10,
@@ -65,6 +80,12 @@ int main() {
   Musician zhang = {
       .name = "Zhang Chu",
       .gender = MALE,
+      .birth = {
+          .tm_year = 1968 - 1900,
+          .tm_mon = 11 - 1,
+          .tm_mday = 17,
+          .tm_wday = 0, // Sunday
+      },
       // .album = "YiKeBuKenMeiSuDeXin",
       .album = album,
       .score = {
@@ -112,9 +133,10 @@ int main() {
 // }
 
 void PrintMusician(const Musician *m) {
-  printf("\n%s\t%d\t%s\t%d\t%d\t%d\n",
+  printf("\n%s\t%d\t%s\t%s\t%d\t%d\t%d\n",
          m->name,
          m->gender,
+         asctime(&m->birth),
          m->album,
          m->score.c_score,
          m->score.java_score,
