@@ -148,4 +148,9 @@ int CompareMusician(const void *m1, const void *m2) {
   const Musician *m_right = m2;
 
   return strcmp(m_left->album, m_right->album);
+
+  // char *name_left = *(char **) m1;
+  // char *name_right = *(char **) m2;
+
+  // return strcmp(name_left, name_left);
 }
