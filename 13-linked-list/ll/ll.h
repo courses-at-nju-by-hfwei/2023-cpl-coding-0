@@ -16,7 +16,7 @@ typedef struct node {
 typedef struct ll {
   Node *head;
   Node *tail;
-  int size;
+  // int size;
 } LinkedList;
 
 void Init(LinkedList *list);
